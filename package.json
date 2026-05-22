@@ -1,0 +1,67 @@
+{
+  "name": "@auxen-ai/langchain",
+  "version": "0.1.0",
+  "description": "LangChain.js provider for Auxen — private AI models on dedicated GPUs, OpenAI-compatible, pay-per-minute.",
+  "license": "Apache-2.0",
+  "homepage": "https://auxen.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auxen-ai/langchain-auxen-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/auxen-ai/langchain-auxen-js/issues"
+  },
+  "keywords": [
+    "ai",
+    "llm",
+    "langchain",
+    "auxen",
+    "openai-compatible",
+    "llama",
+    "qwen",
+    "mistral"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist/**/*",
+    "src",
+    "!src/**/*.test.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "npm run type-check && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.0 || ^1.0.0",
+    "@langchain/openai": "^0.5.0 || ^0.6.0 || ^0.7.0 || ^1.0.0"
+  },
+  "peerDependencies": {
+    "@langchain/core": "^0.3.0 || ^1.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
